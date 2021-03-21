@@ -60,13 +60,7 @@ export default createSchema({
           type: "reference",
           to: [{ type: "author" }],
         },
-        //* Multiple Author
-        // {
-        //   name: "author",
-        //   title: "Author",
-        //   type: "array",
-        //   of: [{ type: "reference", to: [{ type: "author" }] }],
-        // },
+
         {
           name: "slug",
           type: "slug",
@@ -76,3 +70,11 @@ export default createSchema({
     },
   ]),
 });
+
+//* Multiple Author
+// {
+//   name: "author",
+//   title: "Author",
+//   type: "array",
+//   of: [{ type: "reference", to: [{ type: "author" }] }],
+// },
