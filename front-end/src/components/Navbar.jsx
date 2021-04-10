@@ -109,11 +109,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const navContent = [
-  { title: 'HOME', link: '/' },
-  { title: 'ABOUT', link: '/' },
-  { title: 'STORYTELLER', link: '/' },
-  { title: 'CHAPTER', link: '/' },
-  { title: 'CONTACT', link: '/' },
+  { content: 'HOME', link: '/' },
+  { content: 'ABOUT', link: '/About' },
+  { content: 'STORYTELLER', link: '/About' },
+  { content: 'CHAPTER', link: '/About' },
+  { content: 'CONTACT', link: '/About' },
 ];
 
 const BlogNavbar = () => {
