@@ -8,8 +8,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
-    "test": "sanity check",
-    "build": "sanity build public -y"
+    "test": "sanity check"
+    // "build": "sanity build public -y"
   },
   "keywords": [
     "sanity"
