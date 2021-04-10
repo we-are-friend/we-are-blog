@@ -11,7 +11,7 @@ import Container from '@material-ui/core/Container';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import RouterLink from './RouterLink';
-import VerticalLine from './verticalLine';
+import VerticalLine from './VerticalLine';
 
 const useStyles = makeStyles((theme) => ({
   root: {
