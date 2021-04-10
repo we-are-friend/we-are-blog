@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable import/prefer-default-export */
 import _ from 'lodash';
 import { colors, createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 import typography from './typography';
@@ -37,7 +35,7 @@ const themeConfigs = [
         input: {
           '&::placeholder': {
             opacity: 1,
-            color: '#44318d',
+            color: 'rgba(0, 0, 0, 0.87)',
           },
         },
       },
