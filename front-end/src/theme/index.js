@@ -3,7 +3,7 @@
 import _ from 'lodash';
 import { colors, createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 import typography from './typography';
-import { softShadows, strongShadows } from './shadows';
+import { weAreFriendCustomShadows } from './shadows';
 import { THEMES } from '../constants';
 
 const baseConfig = {
@@ -37,7 +37,7 @@ const themeConfigs = [
         input: {
           '&::placeholder': {
             opacity: 1,
-            color: colors.blueGrey[600],
+            color: '#44318d',
           },
         },
       },
@@ -45,7 +45,7 @@ const themeConfigs = [
     palette: {
       type: 'light',
       action: {
-        active: colors.blueGrey[600],
+        active: '#44318d',
       },
       background: {
         default: colors.common.white,
@@ -53,17 +53,23 @@ const themeConfigs = [
         paper: colors.common.white,
       },
       primary: {
-        main: colors.indigo[600],
+        light: '#755bbe',
+        main: '#44318D',
+        dark: '#0a095f',
+        contrastText: colors.common.white,
       },
       secondary: {
-        main: '#5850EC',
+        light: '#ffffff',
+        main: '#d1d1d1',
+        dark: '#a0a0a0',
+        contrastText: '#424242',
       },
       text: {
         primary: colors.blueGrey[900],
         secondary: colors.blueGrey[600],
       },
     },
-    shadows: softShadows,
+    shadows: weAreFriendCustomShadows,
   },
   {
     name: THEMES.ONE_DARK,
@@ -93,37 +99,13 @@ const themeConfigs = [
         secondary: '#adb0bb',
       },
     },
-    shadows: strongShadows,
+    shadows: weAreFriendCustomShadows,
   },
   {
     name: THEMES.UNICORN,
     palette: {
       type: 'dark',
-      action: {
-        active: 'rgba(255, 255, 255, 0.54)',
-        hover: 'rgba(255, 255, 255, 0.04)',
-        selected: 'rgba(255, 255, 255, 0.08)',
-        disabled: 'rgba(255, 255, 255, 0.26)',
-        disabledBackground: 'rgba(255, 255, 255, 0.12)',
-        focus: 'rgba(255, 255, 255, 0.12)',
-      },
-      background: {
-        default: '#2a2d3d',
-        dark: '#222431',
-        paper: '#2a2d3d',
-      },
-      primary: {
-        main: '#a67dff',
-      },
-      secondary: {
-        main: '#a67dff',
-      },
-      text: {
-        primary: '#f6f5f8',
-        secondary: '#9699a4',
-      },
     },
-    shadows: strongShadows,
   },
 ];
 
