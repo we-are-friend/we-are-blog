@@ -1,5 +1,6 @@
-import { Container } from 'react-bootstrap';
 import Navbar from './Navbar';
+import Footer from './Footer';
+import { Container } from '@material-ui/core';
 
 export default function PageLayout({ children, className }) {
   return (
@@ -7,12 +8,8 @@ export default function PageLayout({ children, className }) {
       <Navbar />
       <Container>
         <div className={`page-wrapper ${className}`}>{children}</div>
-        <footer className="page-footer">
-          <div>
-            <a href="#">Footer</a>
-          </div>
-        </footer>
       </Container>
+      <Footer />
     </>
   );
 }
