@@ -1,6 +1,9 @@
-# we-are-blog
-
 ## Getting Started
+
+##### *Request .env file from Trong
+##### *Request email and password Sanity Studio from Trong
+
+## How to run the project
 
 First, run the development server:
 goto /frontend
