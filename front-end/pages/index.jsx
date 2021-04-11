@@ -1,7 +1,6 @@
 import { Row, Col } from 'react-bootstrap';
 import PageLayout from 'src/components/PageLayout';
 import CardItem from 'src/components/CardItem';
-
 import { getAllBlogs } from 'lib/api';
 import useGetBlogs from 'src/hooks/useGetBlogs';
 
