@@ -2,6 +2,7 @@ import { Container } from 'react-bootstrap';
 // eslint-disable-next-line import/no-unresolved
 import Navbar from './Navbar';
 import Head from 'next/head';
+import Footer from './Footer';
 
 export default function PageLayout({ children, className }) {
   return (
@@ -17,7 +18,7 @@ export default function PageLayout({ children, className }) {
         <div className={`page-wrapper ${className}`}>{children}</div>
         <footer className="page-footer">
           <div>
-            <a href="#">Footer</a>
+            <Footer />
           </div>
         </footer>
       </Container>
