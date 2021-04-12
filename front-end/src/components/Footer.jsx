@@ -1,30 +1,40 @@
-export default function Footer({ date, author }) {
-  return (
-    <div className="blog-detail-footer">
-      <p className="lead mb-0">
-        <img
-          src={author?.avatar}
-          className="rounded-circle mr-3"
-          height="50px"
-          width="50px"
-          alt="avatar"
-        />
-        {author?.name}
-        {', '} {date}
-      </p>
-      <p className="footer-text mb-0">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </p>
+import React from 'react';
+import clsx from 'clsx';
+import { createStyles, makeStyles, Typography } from '@material-ui/core';
 
-      <div className="footer-copyright text-center py-3">
-        <p fluid>
-          &copy; {new Date().getFullYear()} Copyright: We are friend co. All
-          right reserved
-        </p>
-      </div>
-      <div>
-        <p> Component Icons should be replaced here</p>
-      </div>
-    </div>
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: {},
+    title: {
+      marginBottom: theme.spacing(1.5),
+      fontFamily: 'Barlow Condensed',
+      fontSize: 36,
+      fontStyle: 'normal',
+      fontWeight: 800,
+      lineHeight: '43.2px',
+      letterSpacing: 0.25,
+      //textAlign: 'left',
+    },
+    subtitle: {
+      marginBottom: theme.spacing(2),
+    },
+  }),
+);
+const Footer = ({ className }) => {
+  const classes = useStyles();
+  return (
+    <footer align="center" className={clsx(classes.root, className)}>
+      <Typography align="center" className={classes.title} color="primary">
+        LOGO-LOGO-LOGO
+      </Typography>
+      <Typography className={classes.subtitle} variant="body1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, hic.
+      </Typography>
+
+      <Typography variant="overline">
+        &copy; {new Date().getFullYear()} We Are Friend Co. All rights reserved.
+      </Typography>
+    </footer>
   );
-}
+};
+export default Footer;

@@ -6,7 +6,7 @@ import { getAllBlogs } from 'lib/api';
 import useGetBlogs from 'src/hooks/useGetBlogs';
 
 export default function Home({ blogs: initialData }) {
-  const { data: blogs, error } = useGetBlogs(initialData);
+  const { data: blogs } = useGetBlogs(initialData);
 
   return (
     <PageLayout>

@@ -1,9 +1,8 @@
-export const APP_VERSION = '2.0.0';
+export const APP_VERSION = '0.0.2';
 
 export const THEMES = {
   LIGHT: 'LIGHT',
   ONE_DARK: 'ONE_DARK',
-  UNICORN: 'UNICORN',
 };
 
 export const USER_TYPE = {
