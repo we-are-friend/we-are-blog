@@ -10,7 +10,6 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import { red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
