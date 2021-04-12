@@ -7,10 +7,8 @@ import {
   Container,
 } from '@material-ui/core';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import YouTubeIcon from '@material-ui/icons/YouTube';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import IconButton from '@material-ui/core/Button';
+
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -36,25 +34,11 @@ const useStyles = makeStyles((theme) =>
       color: '#C2C2C2',
     },
 
-    // icons: {
-    //   backgroundColor: '#44318D',
-    //   width: 20,
-    //   height: 20,
-    //   opacity: 0.1,
-    // },
-
+    iconContainer: {},
     socialMediaIcons: {
-      color: theme.palette.primary.main,
-      borderRadius: '50%',
-      backgroundColor: '#44318D',
-      opacity: 0.1,
-      width: 60,
-      height: 60,
-
-      marginTop: 20,
-      marginBottom: 20,
-      marginLeft: 10,
-      marginRight: 10,
+      // color: '#44318D',
+      backgroundColor: 'red',
+      // borderRadius: '50%',
     },
   }),
 );
@@ -77,17 +61,14 @@ const Footer = ({ className }) => {
         </Typography>
 
         <div>
-          <IconButton aria-label="delete" className={classes.socialMediaIcons}>
+          <IconButton
+            aria-label="delete"
+            // className={classes.margin}
+            className={classes.socialMediaIcons}
+            color="primary"
+            size="medium"
+          >
             <InstagramIcon />
-          </IconButton>
-          <IconButton aria-label="delete" className={classes.socialMediaIcons}>
-            <GitHubIcon />
-          </IconButton>
-          <IconButton aria-label="delete" className={classes.socialMediaIcons}>
-            <TwitterIcon />
-          </IconButton>
-          <IconButton aria-label="delete" className={classes.socialMediaIcons}>
-            <YouTubeIcon />
           </IconButton>
         </div>
       </Container>
