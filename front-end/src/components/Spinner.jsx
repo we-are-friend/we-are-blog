@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -10,9 +11,11 @@ const useStyles = makeStyles(() => ({
     height: '120px',
   },
 }));
-const Spinner = () => {
+const Spinner = ({ className }) => {
   const classes = useStyles();
-  return <CircularProgress disableShrink className={classes.spinner} />;
+  return (
+    <CircularProgress disableShrink className={clsx(classes.root, className)} />
+  );
 };
 
 export default Spinner;
