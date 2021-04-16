@@ -136,7 +136,7 @@ const BlogNavbar = () => {
             {React.Children.toArray(
               navContent?.map(({ link, content }) => (
                 // eslint-disable-next-line react/jsx-key
-                <RouterLink to={link}>
+                <RouterLink href={link}>
                   <Button
                     className={classes.navbarText}
                     color="primary"
