@@ -5,7 +5,7 @@ import MuiLink from '@material-ui/core/Link';
 // eslint-disable-next-line react/display-name
 const RouterLink = React.forwardRef((props, ref) => {
   const {
-    to,
+    href,
     as,
     replace,
     scroll,
@@ -19,7 +19,7 @@ const RouterLink = React.forwardRef((props, ref) => {
     <NextLink
       passHref
       as={as}
-      href={to}
+      href={href}
       prefetch={prefetch}
       replace={replace}
       scroll={scroll}
