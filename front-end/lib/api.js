@@ -2,12 +2,20 @@ import client from './sanity';
 import imageUrlBuilder from '@sanity/image-url';
 
 const blogFields = `
-  title,
-  subtitle,
-  'slug': slug.current,
-  date,
-  'author': author->{name, 'avatar': avatar.asset->url},
-  coverImage,
+title,
+subtitle,
+'slug': slug.current,
+date,
+'author': author->{name, 'avatar': avatar.asset->url},
+coverImage,
+`;
+
+const authorFields = `
+'avatar': avatar.asset->url,
+name,
+position,
+cation,
+social,
 `;
 
 const builder = imageUrlBuilder(client);
@@ -48,4 +56,11 @@ export async function getBlogBySlug(slug, preview) {
     .then((res) => (preview ? (res?.[1] ? res[1] : res[0]) : res?.[0]));
 
   return result;
+}
+
+export async function getAllAuthors() {
+  const results = await client.fetch(
+    `*[_type == "author"] | order(date desc) {${authorFields}}`,
+  );
+  return results;
 }
