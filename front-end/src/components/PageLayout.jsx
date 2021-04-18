@@ -8,8 +8,12 @@ export default function PageLayout({ children, className }) {
       <Navbar />
       <Container>
         <div className={`page-wrapper ${className}`}>{children}</div>
+        <footer className="page-footer">
+          <div>
+            <Footer />
+          </div>
+        </footer>
       </Container>
-      <Footer />
     </>
   );
 }
