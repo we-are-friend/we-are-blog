@@ -6,7 +6,8 @@ import { Grid, Button, Typography } from '@material-ui/core';
 import VerticalCard from 'src/components/VerticalCard';
 import clsx from 'clsx';
 import { createStyles, makeStyles } from '@material-ui/core';
-
+import Banner from 'src/components/Banner';
+import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) =>
   createStyles({
     bloglist: {
@@ -50,21 +51,24 @@ export default function Home({ blogs }) {
 
   return (
     <PageLayout>
-      <Grid container className={classes.bloglist} justify="center">
-        <Grid container item xs={10}>
-          <Typography gutterBottom variant="h3" color="primary">
-            MOST READ
-          </Typography>
-        </Grid>
-        <Grid container item spacing={3} xs={10}>
-          <BlogList data={data || [blogs]} filter={filter} />
-        </Grid>
-        {/* <Grid container item alignItems="center" xs={10}>
+      <Banner />
+      <Container>
+        <Grid container className={classes.bloglist} justify="center">
+          <Grid container item xs={10}>
+            <Typography gutterBottom variant="h3" color="primary">
+              MOST READ
+            </Typography>
+          </Grid>
+          <Grid container item spacing={3} xs={10}>
+            <BlogList data={data || [blogs]} filter={filter} />
+          </Grid>
+          {/* <Grid container item alignItems="center" xs={10}>
           <Button disabled={hitEnd} onClick={() => setSize(size + 1)}>
             Load More
           </Button>
         </Grid> */}
-      </Grid>
+        </Grid>
+      </Container>
     </PageLayout>
   );
 }
