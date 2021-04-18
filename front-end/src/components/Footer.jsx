@@ -7,7 +7,9 @@ import {
   Container,
 } from '@material-ui/core';
 import InstagramIcon from '@material-ui/icons/Instagram';
-
+import TwitterIcon from '@material-ui/icons/Twitter';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) =>
@@ -36,9 +38,8 @@ const useStyles = makeStyles((theme) =>
 
     iconContainer: {},
     socialMediaIcons: {
-      // color: '#44318D',
-      backgroundColor: 'red',
-      // borderRadius: '50%',
+      backgroundColor: `${theme.palette.primary.light}1A`,
+      margin: theme.spacing(2, 1),
     },
   }),
 );
@@ -68,7 +69,34 @@ const Footer = ({ className }) => {
             color="primary"
             size="medium"
           >
-            <InstagramIcon />
+            <InstagramIcon color="primary" />
+          </IconButton>
+          <IconButton
+            aria-label="delete"
+            // className={classes.margin}
+            className={classes.socialMediaIcons}
+            color="primary"
+            size="medium"
+          >
+            <TwitterIcon />
+          </IconButton>
+          <IconButton
+            aria-label="delete"
+            // className={classes.margin}
+            className={classes.socialMediaIcons}
+            color="primary"
+            size="medium"
+          >
+            <YouTubeIcon />
+          </IconButton>
+          <IconButton
+            aria-label="delete"
+            // className={classes.margin}
+            className={classes.socialMediaIcons}
+            color="primary"
+            size="medium"
+          >
+            <GitHubIcon />
           </IconButton>
         </div>
       </Container>
