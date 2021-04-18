@@ -2,8 +2,18 @@ import { useState } from 'react';
 import PageLayout from 'src/components/PageLayout';
 import { getPaginatedBlogs } from 'lib/api';
 import { useGetBlogsPages } from 'src/hooks/useGetBlogsPages';
-import { Grid, Button } from '@material-ui/core';
+import { Grid, Button, Typography } from '@material-ui/core';
 import VerticalCard from 'src/components/VerticalCard';
+import clsx from 'clsx';
+import { createStyles, makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    bloglist: {
+      margin: theme.spacing(10, 0),
+    },
+  }),
+);
 
 //! filter to support new feature
 // eslint-disable-next-line no-unused-vars
@@ -30,6 +40,7 @@ export const BlogList = ({ data = [], filter }) => {
 export default function Home({ blogs }) {
   //! filter to support new feature
   // eslint-disable-next-line no-unused-vars
+  const classes = useStyles();
   const [filter, setFilter] = useState({
     view: { list: 0 },
     date: { asc: 0 },
@@ -39,17 +50,21 @@ export default function Home({ blogs }) {
 
   return (
     <PageLayout>
-      <Grid container justify="center">
+      <Grid container className={classes.bloglist} justify="center">
+        <Grid container item xs={10}>
+          <Typography gutterBottom variant="h3" color="primary">
+            MOST READ
+          </Typography>
+        </Grid>
         <Grid container item spacing={3} xs={10}>
           <BlogList data={data || [blogs]} filter={filter} />
         </Grid>
+        {/* <Grid container item alignItems="center" xs={10}>
+          <Button disabled={hitEnd} onClick={() => setSize(size + 1)}>
+            Load More
+          </Button>
+        </Grid> */}
       </Grid>
-      <div style={{ textAlign: 'center' }}>
-        <Button disabled={hitEnd} onClick={() => setSize(size + 1)}>
-          {/* {isLoadingMore ? '...' : isReachingEnd ? 'No more blogs' : 'More Blogs'} */}
-          Load More
-        </Button>
-      </div>
     </PageLayout>
   );
 }
