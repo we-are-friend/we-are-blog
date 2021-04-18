@@ -23,12 +23,50 @@ export default createSchema({
           type: "string",
         },
         {
+          name: "position",
+          title: "Position",
+          type: "string",
+        },
+        {
+          name: "location",
+          title: "Location",
+          type: "string",
+        },
+        {
           name: "avatar",
           title: "Avatar",
           type: "image",
         },
+        {
+          name: "social",
+          type: "object",
+          fields: [
+            // {name: 'street', type: 'string', title: 'Street name'},
+            // {name: 'street', type: 'string', title: 'Street name'},
+            // {name: 'street', type: 'string', title: 'Street name'},
+            {
+              title: "github",
+              name: "github",
+              type: "url",
+              validation: (Rule) =>
+                Rule.uri({
+                  scheme: ["http", "https", "mailto", "tel"],
+                }),
+            },
+            {
+              title: "linkedin",
+              name: "linkedin",
+              type: "url",
+              validation: (Rule) =>
+                Rule.uri({
+                  scheme: ["http", "https", "mailto", "tel"],
+                }),
+            },
+          ],
+        },
       ],
     },
+    
     {
       name: "blog",
       type: "document",

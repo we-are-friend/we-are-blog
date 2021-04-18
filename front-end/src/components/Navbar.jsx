@@ -5,13 +5,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+// import IconButton from '@material-ui/core/IconButton';
+// import MenuIcon from '@material-ui/icons/Menu';
+import SideBar from './SideBar';
 import Container from '@material-ui/core/Container';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import RouterLink from './RouterLink';
 import VerticalLine from './VerticalLine';
+import { navContent } from 'src/config';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -108,14 +110,6 @@ const useStyles = makeStyles((theme) => ({
   placeholderFont: {},
 }));
 
-const navContent = [
-  { content: 'HOME', link: '/' },
-  { content: 'ABOUT', link: '/About' },
-  { content: 'STORYTELLER', link: '/About' },
-  { content: 'CHAPTER', link: '/About' },
-  { content: 'CONTACT', link: '/About' },
-];
-
 const BlogNavbar = () => {
   const classes = useStyles();
   return (
@@ -127,16 +121,17 @@ const BlogNavbar = () => {
           <Box flexGrow={1} />
 
           <div className={classes.sectionMobile}>
-            <IconButton aria-label="menu" color="inherit">
+            <SideBar />
+            {/* <IconButton aria-label="menu" color="inherit">
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
           </div>
 
           <div className={classes.sectionDesktop}>
             {React.Children.toArray(
               navContent?.map(({ link, content }) => (
                 // eslint-disable-next-line react/jsx-key
-                <RouterLink to={link}>
+                <RouterLink href={link}>
                   <Button
                     className={classes.navbarText}
                     color="primary"
