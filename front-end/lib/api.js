@@ -35,3 +35,17 @@ export async function getPaginatedBlogs(
   );
   return results;
 }
+
+export async function getBlogBySlug(slug, preview) {
+  const result = await client
+    .fetch(
+      `*[_type == "blog" && slug.current == $slug] {
+      ${blogFields}
+      content[]{..., "asset": asset->}
+    }`,
+      { slug },
+    )
+    .then((res) => (preview ? (res?.[1] ? res[1] : res[0]) : res?.[0]));
+
+  return result;
+}
