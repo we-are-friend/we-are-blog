@@ -4,72 +4,86 @@ import {
   createStyles,
   makeStyles,
   Typography,
-  Box,
   CardContent,
   CardMedia,
   Card,
 } from '@material-ui/core';
 import CustomButton from 'src/components/CustomButton';
-
-import { getPaginatedBlogs } from 'lib/api';
+import { urlFor, getPaginatedBlogs } from 'lib/api';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       // borderStyle: 'none', // remove border card ??
     },
-    card: { minWidth: 288, maxWidth: 400 },
-    cover: {
-      minWidth: 132,
-      maxWidth: 150,
-      backgroundColor: 'red',
+    card: {
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 156,
+    },
+    image: {
+      minWidth: 140,
+      maxWidth: 140,
+      height: 156,
+      maxHeight: 156,
       borderRight: `5px solid ${theme.palette.primary.main}`,
     },
-
     button: {
       display: 'block',
       marginTop: theme.spacing(1),
     },
-    displayRow: {
-      display: 'flex',
-      flexDirection: 'row',
-      maxWidth: 400,
-      //flexWrap: 'wrap',
+    content: {
+      position: 'relative',
+      height: 50,
+      overflow: 'hidden',
+      maxHeight: 40,
+      display: '-webkit-box',
+      '-webkit-line-clamp': 2,
+      '-webkit-box-orient': 'vertical',
     },
   }),
 );
 
 const HorizontalCard = ({
-  blogs,
   className,
   title = 'Title Goes Here',
   subtitle = ' Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  image = 'image',
+  image,
   link,
 }) => {
   const classes = useStyles();
   return (
     <div className={clsx(classes.root, className)}>
       <Card className={clsx(classes.card)}>
-        <Box className={classes.displayRow}>
-          <CardMedia
-            className={classes.cover}
-            image="/static/images/cards/live-from-space.jpg"
-            title="Live from space album cover"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h6">
-              {title}
-            </Typography>
-            <Typography gutterBottom variant="caption">
-              {subtitle}
-            </Typography>
-            <Typography gutterBottom variant="caption">
-              {subtitle}
-            </Typography>
-            <CustomButton className={classes.button}>READ MORE</CustomButton>
-          </CardContent>
-        </Box>
+        <CardMedia
+          alt="alt"
+          className={classes.image}
+          component="img"
+          src={urlFor(image)?.width(144).crop('center').fit('clip').url()}
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h6">
+            {title}
+          </Typography>
+          <Typography
+            gutterBottom
+            className={classes.content}
+            color="textSecondary"
+            component="div"
+            variant="body2"
+          >
+            {subtitle}
+          </Typography>
+
+          {link && (
+            <CustomButton link={link} variant="contained">
+              READ MORE
+            </CustomButton>
+          )}
+        </CardContent>
       </Card>
     </div>
   );

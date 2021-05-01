@@ -5,8 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-// import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
 import SideBar from './SideBar';
 import Container from '@material-ui/core/Container';
 import InputBase from '@material-ui/core/InputBase';
@@ -103,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: 150,
       '&:focus': {
-        width: 160,
+        width: 200,
       },
     },
   },
@@ -117,7 +115,7 @@ const BlogNavbar = () => {
     <AppBar position="sticky">
       <Container>
         <Toolbar className={classes.toolbar} variant="dense">
-          <Typography className={classes.title}>LOGO-LOGO-LOGO</Typography>
+          <Typography className={classes.title}>WE-ARE-FRIEND</Typography>
 
           <Box flexGrow={1} />
 
@@ -143,9 +141,7 @@ const BlogNavbar = () => {
                 </RouterLink>
               )),
             )}
-
             <VerticalLine />
-
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />

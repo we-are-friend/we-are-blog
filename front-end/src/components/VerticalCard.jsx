@@ -14,12 +14,19 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       maxWidth: 324,
-      minWidth: 236,
-      minHeight: 437,
+      minWidth: '100%',
+      minHeight: 200,
+      [theme.breakpoints.up('md')]: {
+        height: 437,
+      },
       boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.25)',
     },
     cardMedia: {
+      height: 236,
       borderBottom: `5px solid ${theme.palette.primary.main}`,
+      [theme.breakpoints.up('md')]: {
+        height: 256,
+      },
     },
     title: {
       overflow: 'hidden',
@@ -56,7 +63,6 @@ const VerticalCard = ({
           alt="alt"
           className={classes.cardMedia}
           component="img"
-          height="256"
           src={urlFor(image)?.height(300).crop('center').fit('clip').url()}
           title="Contemplative Reptile"
         />
