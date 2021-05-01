@@ -270,6 +270,11 @@
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
 
+"@n8tb1t/use-scroll-position@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@n8tb1t/use-scroll-position/-/use-scroll-position-2.0.3.tgz#207c54d584285cac0954d556964f83cf5774940b"
+  integrity sha512-6GO4FHVJTMI4jbRHborzemuL6B319qh2cVLOLj8DApJhjyT71eLgANbQ4bNKSZ51zBm3uJ3WmqnyNF17eSsDyw==
+
 "@next/env@10.1.3":
   version "10.1.3"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-10.1.3.tgz#29e5d62919b4a7b1859f8d36169848dc3f5ddebe"
@@ -3898,6 +3903,11 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-scroll-position@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/use-scroll-position/-/use-scroll-position-0.0.4.tgz#60b15bcee69a1596b04be1fc7da1a71778500e04"
+  integrity sha512-niACVxsyo26TOR4F6MxipXULZE8W/HyB7SBkXnax1XrbuohLU2tZbMGySHBctgGH2E55gM+wGyCcFvueeWmbQA==
 
 use-subscription@1.5.1:
   version "1.5.1"

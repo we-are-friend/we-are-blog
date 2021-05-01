@@ -2,16 +2,28 @@ import { useState } from 'react';
 import PageLayout from 'src/components/PageLayout';
 import { getPaginatedBlogs } from 'lib/api';
 import { useGetBlogsPages } from 'src/hooks/useGetBlogsPages';
-import { Grid, Button, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import VerticalCard from 'src/components/VerticalCard';
-import clsx from 'clsx';
 import { createStyles, makeStyles } from '@material-ui/core';
 import Banner from 'src/components/Banner';
 import Container from '@material-ui/core/Container';
+import usePosition from 'src/hooks/usePosition';
+import Fab from '@material-ui/core/Fab';
+import NavigationIcon from '@material-ui/icons/Navigation';
+import Zoom from '@material-ui/core/Zoom';
+
 const useStyles = makeStyles((theme) =>
   createStyles({
     bloglist: {
       margin: theme.spacing(10, 0),
+    },
+    fab: {
+      position: 'fixed',
+      bottom: theme.spacing(2),
+      right: theme.spacing(2),
+    },
+    PageLayout: {
+      position: 'relative',
     },
   }),
 );
@@ -42,16 +54,20 @@ export default function Home({ blogs }) {
   //! filter to support new feature
   // eslint-disable-next-line no-unused-vars
   const classes = useStyles();
+
   const [filter, setFilter] = useState({
     view: { list: 0 },
     date: { asc: 0 },
   });
+  const positionStore = usePosition();
+  const enableFabButton = positionStore.getElementY() < -740;
 
   const { data, size, setSize, hitEnd } = useGetBlogsPages({ filter });
 
   return (
-    <PageLayout>
+    <PageLayout className={classes.PageLayout}>
       <Banner />
+      {/* <Position /> */}
       <Container>
         <Grid container className={classes.bloglist} justify="center">
           <Grid container item xs={10}>
@@ -67,8 +83,16 @@ export default function Home({ blogs }) {
             Load More
           </Button>
         </Grid> */}
+          <a href="#banner">jump link</a>
         </Grid>
       </Container>
+
+      <Zoom timeout={200} unmountOnExit in={enableFabButton}>
+        <Fab href="#banner" className={classes.fab} variant="extended">
+          <NavigationIcon className={classes.extendedIcon} />
+          Navigate
+        </Fab>
+      </Zoom>
     </PageLayout>
   );
 }
