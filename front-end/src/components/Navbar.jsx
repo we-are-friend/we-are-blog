@@ -112,8 +112,9 @@ const useStyles = makeStyles((theme) => ({
 
 const BlogNavbar = () => {
   const classes = useStyles();
+
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Container>
         <Toolbar className={classes.toolbar} variant="dense">
           <Typography className={classes.title}>LOGO-LOGO-LOGO</Typography>
