@@ -83,7 +83,7 @@ const Banner = ({ className }) => {
   }, []);
 
   return (
-    <div className={clsx(classes.root, className)}>
+    <div className={clsx(classes.root, className)} id="banner">
       <Slider height={300} width={300} {...settings}>
         <div>
           <Image
