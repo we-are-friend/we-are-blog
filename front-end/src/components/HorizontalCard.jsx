@@ -4,35 +4,36 @@ import {
   createStyles,
   makeStyles,
   Typography,
-  Paper,
   Box,
   CardContent,
+  CardMedia,
   Card,
 } from '@material-ui/core';
 import CustomButton from 'src/components/CustomButton';
-import AddIcon from '@material-ui/icons/Add';
 
 import { getPaginatedBlogs } from 'lib/api';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
-      borderStyle: 'none', // remove border card ??
+      // borderStyle: 'none', // remove border card ??
+    },
+    card: { minWidth: 288, maxWidth: 400 },
+    cover: {
+      minWidth: 132,
+      maxWidth: 150,
+      backgroundColor: 'red',
+      borderRight: `5px solid ${theme.palette.primary.main}`,
     },
 
-    paper: {
-      padding: theme.spacing(2, 0, 2, 0),
-      margin: 'auto',
-      maxWidth: '100%',
-    },
-    imgBorderRight: {
-      width: 256,
-      height: 256,
-      borderRight: `5px solid ${theme.palette.primary.main}`,
+    button: {
+      display: 'block',
+      marginTop: theme.spacing(1),
     },
     displayRow: {
       display: 'flex',
       flexDirection: 'row',
+      maxWidth: 400,
       //flexWrap: 'wrap',
     },
   }),
@@ -45,36 +46,32 @@ const HorizontalCard = ({
   subtitle = ' Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   image = 'image',
   link,
-  // date,
-  // author,
 }) => {
-  //console.log(blogs);
-
   const classes = useStyles();
   return (
-    <>
-      <Card className={clsx(classes.root)}>
+    <div className={clsx(classes.root, className)}>
+      <Card className={clsx(classes.card)}>
         <Box className={classes.displayRow}>
+          <CardMedia
+            className={classes.cover}
+            image="/static/images/cards/live-from-space.jpg"
+            title="Live from space album cover"
+          />
           <CardContent>
-            <Paper className={(classes.paper, classes.imgBorderRight)}>
-              <img alt={title} component="img" height="256" src={image} />
-            </Paper>
+            <Typography gutterBottom variant="h6">
+              {title}
+            </Typography>
+            <Typography gutterBottom variant="caption">
+              {subtitle}
+            </Typography>
+            <Typography gutterBottom variant="caption">
+              {subtitle}
+            </Typography>
+            <CustomButton className={classes.button}>READ MORE</CustomButton>
           </CardContent>
-          <Box>
-            <CardContent>
-              <Paper className={classes.paper}>
-                <Typography> {title} </Typography>
-                <Typography>{subtitle}</Typography>
-
-                <Box m={2}>
-                  <CustomButton startIcon={<AddIcon />}>READ MORE</CustomButton>
-                </Box>
-              </Paper>
-            </CardContent>
-          </Box>
         </Box>
       </Card>
-    </>
+    </div>
   );
 };
 export default HorizontalCard;
