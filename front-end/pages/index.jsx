@@ -15,7 +15,7 @@ import Banner from 'src/components/Banner';
 import Container from '@material-ui/core/Container';
 import usePosition from 'src/hooks/usePosition';
 import Fab from '@material-ui/core/Fab';
-import NavigationIcon from '@material-ui/icons/Navigation';
+import ArrowUpwardRoundedIcon from '@material-ui/icons/ArrowUpwardRounded';
 import Zoom from '@material-ui/core/Zoom';
 import Button from '@material-ui/core/Button';
 import HorizontalCard from 'src/components/HorizontalCard';
@@ -133,6 +133,7 @@ export default function Home({ blogs }) {
               startIcon={
                 isValidating && <CircularProgress size={16} color="secondary" />
               }
+              variant="outlined"
               onClick={() => setSize(size + 1)}
             >
               Load More
@@ -142,9 +143,8 @@ export default function Home({ blogs }) {
       </Container>
 
       <Zoom unmountOnExit in={enableFabButton} timeout={200}>
-        <Fab className={classes.fab} href="#banner" variant="extended">
-          <NavigationIcon className={classes.extendedIcon} />
-          Navigate
+        <Fab className={classes.fab} href="#banner">
+          <ArrowUpwardRoundedIcon className={classes.extendedIcon} />
         </Fab>
       </Zoom>
     </PageLayout>

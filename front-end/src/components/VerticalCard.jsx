@@ -16,17 +16,14 @@ const useStyles = makeStyles((theme) =>
       maxWidth: 324,
       minWidth: '100%',
       minHeight: 200,
-      [theme.breakpoints.up('md')]: {
-        height: 437,
+      [theme.breakpoints.up('sm')]: {
+        height: 420,
       },
       boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.25)',
     },
     cardMedia: {
       height: 236,
       borderBottom: `5px solid ${theme.palette.primary.main}`,
-      [theme.breakpoints.up('md')]: {
-        height: 256,
-      },
     },
     title: {
       overflow: 'hidden',
