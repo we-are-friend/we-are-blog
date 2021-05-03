@@ -13,6 +13,7 @@ coverImage,
 const authorFields = `
 'avatar': avatar.asset->url,
 name,
+location,
 position,
 cation,
 social,
