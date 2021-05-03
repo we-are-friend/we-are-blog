@@ -1,19 +1,102 @@
 import React from 'react';
-import clsx from 'clsx';
-import { createStyles, makeStyles } from '@material-ui/core';
 import { getAllAuthors } from 'lib/api';
+import PageLayout from 'src/components/PageLayout';
+import {
+  Grid,
+  Typography,
+  useMediaQuery,
+  useTheme,
+  makeStyles,
+  createStyles,
+} from '@material-ui/core';
+import AuthorVerticalCard from 'src/components/AuthorVerticalCard';
+import Container from '@material-ui/core/Container';
+import usePosition from 'src/hooks/usePosition';
+import Fab from '@material-ui/core/Fab';
+import ArrowUpwardRoundedIcon from '@material-ui/icons/ArrowUpwardRounded';
+import Zoom from '@material-ui/core/Zoom';
+import AuthorHorizontalCard from 'src/components/AuthorHorizontalCard';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme) =>
   createStyles({
-    root: {},
+    bloglist: {
+      margin: theme.spacing(5, 0),
+      [theme.breakpoints.up('sm')]: {
+        margin: theme.spacing(10, 0),
+      },
+    },
+    PageLayout: {
+      position: 'relative',
+    },
+    loadmore: {
+      margin: theme.spacing(3, 0),
+    },
   }),
 );
+
+export const BlogList = ({ data = [], smUp }) => {
+  return data.map((author) => (
+    <Grid key={author.name} item md={4} sm={6} xs={12}>
+      {smUp ? (
+        <AuthorVerticalCard
+          image={author.avatar}
+          subtitle={author.position}
+          title={author.name}
+          caption={author.location}
+          social={author.social}
+        />
+      ) : (
+        <AuthorHorizontalCard
+          image={author.avatar}
+          subtitle={author.position}
+          title={author.name}
+          social={author.social}
+        />
+      )}
+    </Grid>
+  ));
+};
+
 const About = ({ className, authors }) => {
   //! const {name ,social, image, position, location } = authors;
-  // console.log(authors)
-  // author is all of data that you have to display
   const classes = useStyles();
-  return <div className={clsx(classes.root, className)}>Yooo</div>;
+  const theme = useTheme();
+  const smUp = useMediaQuery(theme.breakpoints.up('sm'));
+  const positionStore = usePosition();
+  const enableFabButton = positionStore.getElementY() < -740;
+  return (
+    <PageLayout className={classes.PageLayout}>
+      {/* <Position /> */}
+      <Container>
+        <Grid container className={classes.bloglist} justify="center">
+          <Grid container item xs={12}>
+            <Typography
+              gutterBottom
+              color="primary"
+              variant={smUp ? 'h3' : 'h5'}
+            >
+              About us
+            </Typography>
+          </Grid>
+          <Grid
+            container
+            item
+            alignItems="center"
+            spacing={smUp ? 3 : 2}
+            xs={12}
+          >
+            <BlogList data={authors} smUp={smUp} />
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Zoom unmountOnExit in={enableFabButton} timeout={200}>
+        <Fab className={classes.fab} href="#banner">
+          <ArrowUpwardRoundedIcon className={classes.extendedIcon} />
+        </Fab>
+      </Zoom>
+    </PageLayout>
+  );
 };
 export default About;
 
@@ -23,6 +106,6 @@ export async function getStaticProps({ preview = false }) {
     props: {
       authors,
     },
-    revalidate: 1,
+    revalidate: 30,
   };
 }

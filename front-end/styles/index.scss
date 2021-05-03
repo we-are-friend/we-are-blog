@@ -296,6 +296,10 @@
 //   }
 // }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .button__bar {
   display: inline-block;
   vertical-align: middle;

@@ -3,12 +3,11 @@ import clsx from 'clsx';
 import { createStyles, makeStyles } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import CustomButton from './CustomButton';
 import { urlFor } from 'lib/api';
+import AuthorSocialMedia from './AuthorSocialMedia';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -33,12 +32,12 @@ const useStyles = makeStyles((theme) =>
     },
     content: {
       position: 'relative',
-      height: 50,
+      height: 20,
       overflow: 'hidden',
-      maxHeight: 40,
+      maxHeight: 20,
 
       display: '-webkit-box',
-      '-webkit-line-clamp': 2,
+      '-webkit-line-clamp': 1,
       '-webkit-box-orient': 'vertical',
     },
   }),
@@ -47,10 +46,9 @@ const VerticalCard = ({
   className,
   title = 'title',
   subtitle = 'subtitle',
+  caption = 'caption',
+  social,
   image,
-  link,
-  // date,
-  // author,
 }) => {
   const classes = useStyles();
   return (
@@ -75,15 +73,18 @@ const VerticalCard = ({
           >
             {subtitle}
           </Typography>
+          <Typography
+            className={classes.content}
+            color="textSecondary"
+            component="div"
+            variant="body2"
+          >
+            {caption}
+          </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        {link && (
-          <CustomButton link={link} variant="text">
-            READ MORE
-          </CustomButton>
-        )}
-      </CardActions>
+
+      <AuthorSocialMedia social={social} />
     </Card>
   );
 };

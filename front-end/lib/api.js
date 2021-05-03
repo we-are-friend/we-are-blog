@@ -13,13 +13,13 @@ coverImage,
 const authorFields = `
 'avatar': avatar.asset->url,
 name,
+location,
 position,
 cation,
 social,
 `;
 
 const builder = imageUrlBuilder(client);
-// const getClient = (preview) => (preview ? previewClient : client);
 
 export function urlFor(source) {
   return builder.image(source);

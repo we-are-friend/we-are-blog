@@ -49,7 +49,7 @@ const Footer = ({ className }) => {
     <footer align="center" className={clsx(classes.root, className)}>
       <Container className={classes.footerContainer}>
         <Typography align="center" className={classes.title} color="primary">
-          LOGO-LOGO-LOGO
+          WE-ARE-FRIEND
         </Typography>
         <Typography className={classes.subtitle} variant="body1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
