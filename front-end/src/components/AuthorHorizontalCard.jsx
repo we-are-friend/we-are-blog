@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import CustomButton from 'src/components/CustomButton';
 import { urlFor, getPaginatedBlogs } from 'lib/api';
+import AuthorSocialMedia from './AuthorSocialMedia';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -24,8 +25,8 @@ const useStyles = makeStyles((theme) =>
       height: 156,
     },
     image: {
-      minWidth: 140,
-      maxWidth: 140,
+      minWidth: 120,
+      maxWidth: 120,
       height: 156,
       maxHeight: 156,
       borderRight: `5px solid ${theme.palette.primary.main}`,
@@ -33,6 +34,12 @@ const useStyles = makeStyles((theme) =>
     button: {
       display: 'block',
       marginTop: theme.spacing(1),
+    },
+    title: {
+      overflow: 'hidden',
+      display: '-webkit-box',
+      '-webkit-line-clamp': 2,
+      '-webkit-box-orient': 'vertical',
     },
     content: {
       position: 'relative',
@@ -51,6 +58,7 @@ const HorizontalCard = ({
   title = 'Title Goes Here',
   subtitle = ' Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   caption = 'caption',
+  social,
   image,
   link,
 }) => {
@@ -66,7 +74,7 @@ const HorizontalCard = ({
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h6">
+          <Typography gutterBottom className={classes.title} variant="h6">
             {title}
           </Typography>
           <Typography
@@ -93,6 +101,7 @@ const HorizontalCard = ({
               READ MORE
             </CustomButton>
           )}
+          <AuthorSocialMedia social={social} />
         </CardContent>
       </Card>
     </div>

@@ -39,18 +39,19 @@ export const BlogList = ({ data = [], smUp }) => {
     <Grid key={author.name} item md={4} sm={6} xs={12}>
       {smUp ? (
         <AuthorVerticalCard
+          caption={author.location}
           image={author.avatar}
+          social={author.social}
           subtitle={author.position}
           title={author.name}
-          caption={author.location}
-          social={author.social}
         />
       ) : (
         <AuthorHorizontalCard
+          caption={author.location}
           image={author.avatar}
+          social={author.social}
           subtitle={author.position}
           title={author.name}
-          social={author.social}
         />
       )}
     </Grid>
