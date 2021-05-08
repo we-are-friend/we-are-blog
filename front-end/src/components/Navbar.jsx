@@ -112,7 +112,7 @@ const BlogNavbar = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="sticky">
       <Container>
         <Toolbar className={classes.toolbar} variant="dense">
           <Typography className={classes.title}>WE-ARE-FRIEND</Typography>
