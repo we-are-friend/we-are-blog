@@ -130,6 +130,7 @@ export default function Home({ blogs }) {
           >
             <Button
               disabled={isValidating || hitEnd}
+              size="large"
               startIcon={
                 isValidating && <CircularProgress size={16} color="secondary" />
               }
@@ -142,7 +143,7 @@ export default function Home({ blogs }) {
         </Grid>
       </Container>
 
-      <Zoom unmountOnExit in={enableFabButton} timeout={200}>
+      <Zoom unmountOnExit color="primary" in={enableFabButton} timeout={200}>
         <Fab className={classes.fab} href="#banner">
           <ArrowUpwardRoundedIcon className={classes.extendedIcon} />
         </Fab>

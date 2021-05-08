@@ -16,14 +16,14 @@ const useStyles = makeStyles((theme) =>
       maxWidth: 324,
       minWidth: '100%',
       minHeight: 200,
-      [theme.breakpoints.up('sm')]: {
-        height: 420,
-      },
       boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.25)',
     },
     cardMedia: {
       height: 236,
       borderBottom: `5px solid ${theme.palette.primary.main}`,
+      [theme.breakpoints.up('md')]: {
+        height: 325,
+      },
     },
     title: {
       overflow: 'hidden',
@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) =>
       display: '-webkit-box',
       '-webkit-line-clamp': 2,
       '-webkit-box-orient': 'vertical',
+    },
+    button: {
+      marginBottom: theme.spacing(4),
     },
   }),
 );
@@ -79,7 +82,12 @@ const VerticalCard = ({
       </CardActionArea>
       <CardActions>
         {link && (
-          <CustomButton link={link} variant="text">
+          <CustomButton
+            className={classes.button}
+            link={link}
+            size="large"
+            variant="text"
+          >
             READ MORE
           </CustomButton>
         )}
