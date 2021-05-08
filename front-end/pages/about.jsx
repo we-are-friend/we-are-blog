@@ -11,10 +11,6 @@ import {
 } from '@material-ui/core';
 import AuthorVerticalCard from 'src/components/AuthorVerticalCard';
 import Container from '@material-ui/core/Container';
-import usePosition from 'src/hooks/usePosition';
-import Fab from '@material-ui/core/Fab';
-import ArrowUpwardRoundedIcon from '@material-ui/icons/ArrowUpwardRounded';
-import Zoom from '@material-ui/core/Zoom';
 import AuthorHorizontalCard from 'src/components/AuthorHorizontalCard';
 
 const useStyles = makeStyles((theme) =>
@@ -63,8 +59,7 @@ const About = ({ className, authors }) => {
   const classes = useStyles();
   const theme = useTheme();
   const smUp = useMediaQuery(theme.breakpoints.up('sm'));
-  const positionStore = usePosition();
-  const enableFabButton = positionStore.getElementY() < -740;
+
   return (
     <PageLayout className={classes.PageLayout}>
       {/* <Position /> */}
@@ -90,12 +85,6 @@ const About = ({ className, authors }) => {
           </Grid>
         </Grid>
       </Container>
-
-      <Zoom unmountOnExit in={enableFabButton} timeout={200}>
-        <Fab className={classes.fab} href="#banner">
-          <ArrowUpwardRoundedIcon className={classes.extendedIcon} />
-        </Fab>
-      </Zoom>
     </PageLayout>
   );
 };
