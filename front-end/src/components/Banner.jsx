@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme) =>
         display: 'block',
         height: theme.spacing(1.5),
         width: theme.spacing(1.5),
+        // maxHeight: theme.spacing(1.5),
+        // maxWidth: theme.spacing(1.5),
+        minHeight: theme.spacing(1.5),
+        minWidth: theme.spacing(1.5),
         borderRadius: '50%',
       },
 
@@ -79,6 +83,14 @@ const Banner = ({ className }) => {
       autoplaySpeed: 3000,
       adaptiveHeight: true,
       dotsClass: classes.button__bar,
+      responsive: [
+        {
+          breakpoint: 600,
+          settings: {
+            dots: false,
+          },
+        },
+      ],
     };
   }, []);
 
