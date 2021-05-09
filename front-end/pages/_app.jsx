@@ -23,8 +23,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta
-          content="minimum-scale=1, initial-scale=1, width=device-width"
+          content="minimum-scale=1, initial-scale=1, width=device-width, initial-scale=1.0, shrink-to-fit=no"
           name="viewport"
+          shrink-to-fit="no"
         />
       </Head>
       <ThemeProvider theme={theme}>
